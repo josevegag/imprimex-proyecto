@@ -35,10 +35,10 @@ export default function PassaicPoliceStore() {
       <header className="police-store-nav">
         <Link href="/" aria-label="Back to Imprimex home">
           <Image
-            src="/images/imprimex-logo-horizontal.png"
+            src="/images/imprimex-logo-approved.png"
             alt="Imprimex"
-            width={910}
-            height={289}
+            width={2158}
+            height={729}
             priority
           />
         </Link>

@@ -98,10 +98,10 @@ export default function Home() {
         <div className="site-width header-inner">
           <a className="logo-link" href="#top" aria-label="Imprimex home">
             <Image
-              src="/images/imprimex-logo-horizontal.png"
+              src="/images/imprimex-logo-approved.png"
               alt="Imprimex — For All Your Printing Needs"
-              width={910}
-              height={289}
+              width={2158}
+              height={729}
             />
           </a>
           <nav className="desktop-nav" aria-label="Main navigation">
