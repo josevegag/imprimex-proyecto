@@ -20,16 +20,17 @@ export const metadata: Metadata = {
   title: 'Imprimex | Custom Printing in Passaic, NJ',
   description:
     'Screen printing, DTF transfers, embroidery, stickers, graphic design, and business printing in Passaic, New Jersey.',
+  icons: { icon: '/images/imprimex-avatar.png' },
   openGraph: {
     title: 'Imprimex | For All Your Printing Needs',
     description:
       'Custom apparel, branded essentials, and business printing in Passaic, New Jersey.',
     images: [
       {
-        url: '/og.png',
-        width: 1733,
-        height: 909,
-        alt: 'Imprimex custom printed apparel and business materials',
+        url: '/images/imprimex-logo-horizontal.png',
+        width: 910,
+        height: 289,
+        alt: 'Imprimex — For All Your Printing Needs',
       },
     ],
   },
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Imprimex | For All Your Printing Needs',
     description:
       'Custom apparel, branded essentials, and business printing in Passaic, New Jersey.',
-    images: ['/og.png'],
+    images: ['/images/imprimex-logo-horizontal.png'],
   },
 };
 
