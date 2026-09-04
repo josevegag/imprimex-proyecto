@@ -138,9 +138,8 @@ img {
   z-index: 60;
   top: calc(100% - 1px);
   left: 50%;
-  width: 270px;
-  min-height: 116px;
-  padding: 30px 28px;
+  width: 390px;
+  padding: 24px 26px 28px;
   background: #211f22;
   color: #fff;
   border-top: 3px solid #f4b829;
@@ -153,12 +152,28 @@ img {
     transform 180ms ease,
     visibility 180ms ease;
 }
-.online-stores-menu span {
-  display: block;
-  color: #bec3ca;
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: 0.01em;
+.online-stores-menu ul,
+.mobile-stores ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.online-stores-menu ul {
+  display: grid;
+  gap: 14px;
+  max-height: calc(100vh - 170px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #60636a transparent;
+}
+.online-stores-menu li {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0;
 }
 .nav-dropdown:hover .online-stores-menu,
 .nav-dropdown:focus-within .online-stores-menu {
@@ -246,9 +261,18 @@ img {
   margin-top: 14px;
   padding: 18px;
   background: #211f22;
-  color: #bfc4cc;
-  font-size: 11px;
+  color: #fff;
+  font-size: 13px;
   text-transform: none;
+}
+.mobile-stores ul {
+  display: grid;
+  gap: 13px;
+}
+.mobile-stores li {
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.3;
 }
 .hero-section {
   height: 690px;

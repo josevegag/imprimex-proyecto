@@ -66,6 +66,24 @@ const serviceGroups = [
   },
 ];
 
+const onlineStores = [
+  'Alianza Peru S.C.',
+  'Arsenal Soccer Club',
+  'Express Bus Service',
+  'Hackensack Soccer',
+  'Myries Way Apparel',
+  'N2BF',
+  'NE Cantolao FC',
+  'New York Belly Dance Festival',
+  'NYCMSBL',
+  'Passaic Police Apparel',
+  'PBA Local 14 Apparel',
+  'Officer Brian Lora 602',
+  'The Parc',
+  'TTF Football Club',
+  'WPSA SOCCER',
+];
+
 export default function Home() {
   return (
     <main id="top">
@@ -107,7 +125,11 @@ export default function Home() {
                 Online Stores <ChevronDown aria-hidden="true" />
               </a>
               <div className="online-stores-menu" aria-label="Online stores">
-                <span>Store list pending</span>
+                <ul>
+                  {onlineStores.map((store) => (
+                    <li key={store}>{store}</li>
+                  ))}
+                </ul>
               </div>
             </div>
             <a href="#contact">Contact</a>
@@ -126,7 +148,11 @@ export default function Home() {
                   Online Stores <ChevronDown aria-hidden="true" />
                 </summary>
                 <div>
-                  <span>Store list pending</span>
+                  <ul>
+                    {onlineStores.map((store) => (
+                      <li key={store}>{store}</li>
+                    ))}
+                  </ul>
                 </div>
               </details>
               <a href="#contact">Contact</a>
