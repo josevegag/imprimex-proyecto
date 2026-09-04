@@ -1,12 +1,5 @@
 import Image from 'next/image';
-import {
-  ArrowRight,
-  ChevronDown,
-  MapPin,
-  Menu,
-  MessageCircle,
-  Phone,
-} from 'lucide-react';
+import { ArrowRight, MapPin, Menu, MessageCircle, Phone } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -14,26 +7,26 @@ const categories = [
   {
     title: 'Custom Apparel',
     label: 'Wear your brand',
-    image: '/images/apparel.jpg',
-    href: '#apparel',
+    image: '/images/real-dtf.jpg',
+    href: '#online-stores',
   },
   {
     title: 'Screen Printing',
     label: 'Bold, lasting prints',
-    image: '/images/screen-printing.jpg',
-    href: '#services',
+    image: '/images/real-printing.jpg',
+    href: '#cybographics',
   },
   {
     title: 'Embroidery',
     label: 'A polished finish',
-    image: '/images/embroidery.jpg',
-    href: '#services',
+    image: '/images/real-embroidery.jpg',
+    href: '#cybographics',
   },
   {
     title: 'Business Printing',
     label: 'Make every detail count',
-    image: '/images/color-swatches.jpg',
-    href: '#business',
+    image: '/images/real-business-cards.jpg',
+    href: '#more',
   },
 ];
 
@@ -99,45 +92,30 @@ export default function Home() {
             />
           </a>
           <nav className="desktop-nav" aria-label="Main navigation">
-            <a href="#services">
-              Services <ChevronDown />
-            </a>
-            <a href="#apparel">Apparel & Uniforms</a>
-            <a href="#business">Business Printing</a>
+            <a href="#top">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#cybographics">Cybographics Inc.</a>
+            <a href="#online-stores">Online Stores</a>
             <a href="#contact">Contact</a>
+            <a href="#more">More</a>
           </nav>
-          <a
-            className={cn(buttonVariants(), 'quote-button')}
-            href="mailto:imprimexllc@gmail.com?subject=Request%20a%20Quote"
-          >
-            Request a Quote
-          </a>
           <details className="mobile-nav">
             <summary aria-label="Open navigation">
               <Menu />
             </summary>
             <nav>
-              <a href="#services">Services</a>
-              <a href="#apparel">Apparel & Uniforms</a>
-              <a href="#business">Business Printing</a>
+              <a href="#top">Home</a>
+              <a href="#shop">Shop</a>
+              <a href="#cybographics">Cybographics Inc.</a>
+              <a href="#online-stores">Online Stores</a>
               <a href="#contact">Contact</a>
-              <a href="mailto:imprimexllc@gmail.com?subject=Request%20a%20Quote">
-                Request a Quote
-              </a>
+              <a href="#more">More</a>
             </nav>
           </details>
         </div>
       </header>
 
       <section className="hero-section">
-        <Image
-          className="hero-image"
-          src="/images/print-machine.jpg"
-          alt="Professional screen printing equipment in production"
-          fill
-          priority
-          sizes="100vw"
-        />
         <div className="hero-overlay" />
         <div className="site-width hero-content">
           <span className="hero-kicker">
@@ -164,10 +142,39 @@ export default function Home() {
                 buttonVariants({ variant: 'outline' }),
                 'hero-secondary',
               )}
-              href="#services"
+              href="#shop"
             >
               Explore Services
             </a>
+          </div>
+        </div>
+        <div className="hero-work" aria-label="Selected work by Imprimex">
+          <div className="hero-work-main">
+            <Image
+              src="/images/real-dtf.jpg"
+              alt="Direct to film apparel work published by Imprimex"
+              fill
+              priority
+              sizes="(max-width: 900px) 70vw, 34vw"
+            />
+          </div>
+          <div className="hero-work-small top">
+            <Image
+              src="/images/real-embroidery.jpg"
+              alt="Embroidered hats published by Imprimex"
+              fill
+              priority
+              sizes="18vw"
+            />
+          </div>
+          <div className="hero-work-small bottom">
+            <Image
+              src="/images/real-business-cards.jpg"
+              alt="Business card printing published by Imprimex"
+              fill
+              priority
+              sizes="18vw"
+            />
           </div>
         </div>
         <div className="hero-note">
@@ -176,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="category-section" id="services">
+      <section className="category-section" id="shop">
         <div className="site-width">
           <div className="section-intro">
             <div>
@@ -217,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="service-menu">
+      <section className="service-menu" id="cybographics">
         <div className="site-width">
           <div className="service-menu-head">
             <span className="section-label light">
@@ -248,11 +255,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="apparel-section" id="apparel">
+      <section className="apparel-section" id="online-stores">
         <div className="apparel-photo">
           <Image
-            src="/images/apparel.jpg"
-            alt="A professional selection of blank apparel ready for customization"
+            src="/images/real-dtf.jpg"
+            alt="Direct to film apparel work published by Imprimex"
             fill
             loading="eager"
             sizes="(max-width: 1000px) 100vw, 54vw"
@@ -293,7 +300,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="business-section" id="business">
+      <section className="business-section" id="more">
         <div className="site-width">
           <div className="business-heading">
             <span className="section-label">Business printing</span>
@@ -306,8 +313,8 @@ export default function Home() {
           <div className="business-layout">
             <div className="business-image large">
               <Image
-                src="/images/color-swatches.jpg"
-                alt="A full range of professional print color swatches"
+                src="/images/real-business-cards.jpg"
+                alt="Business cards published by Imprimex"
                 fill
                 loading="eager"
                 sizes="(max-width: 640px) 100vw, 63vw"
@@ -319,8 +326,8 @@ export default function Home() {
             </div>
             <div className="business-image">
               <Image
-                src="/images/screen-printing.jpg"
-                alt="A screen printer preparing a custom print"
+                src="/images/real-offset.jpg"
+                alt="Offset printing services published by Imprimex"
                 fill
                 loading="eager"
                 sizes="(max-width: 640px) 100vw, 37vw"
