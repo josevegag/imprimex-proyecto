@@ -67,9 +67,9 @@ const serviceGroups = [
 ];
 
 const onlineStores = [
-  'Passaic Police Apparel',
-  'PBA Local 14 Apparel',
-  'Officer Brian Lora 602',
+  { name: 'Passaic Police Apparel', href: '/stores/passaic-police' },
+  { name: 'PBA Local 14 Apparel' },
+  { name: 'Officer Brian Lora 602' },
 ];
 
 export default function Home() {
@@ -115,7 +115,13 @@ export default function Home() {
               <div className="online-stores-menu" aria-label="Online stores">
                 <ul>
                   {onlineStores.map((store) => (
-                    <li key={store}>{store}</li>
+                    <li key={store.name}>
+                      {store.href ? (
+                        <a href={store.href}>{store.name}</a>
+                      ) : (
+                        store.name
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -138,7 +144,13 @@ export default function Home() {
                 <div>
                   <ul>
                     {onlineStores.map((store) => (
-                      <li key={store}>{store}</li>
+                      <li key={store.name}>
+                        {store.href ? (
+                          <a href={store.href}>{store.name}</a>
+                        ) : (
+                          store.name
+                        )}
+                      </li>
                     ))}
                   </ul>
                 </div>
