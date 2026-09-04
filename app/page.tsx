@@ -1,5 +1,12 @@
 import Image from 'next/image';
-import { ArrowRight, MapPin, Menu, MessageCircle, Phone } from 'lucide-react';
+import {
+  ArrowRight,
+  ChevronDown,
+  MapPin,
+  Menu,
+  MessageCircle,
+  Phone,
+} from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -95,7 +102,14 @@ export default function Home() {
             <a href="#top">Home</a>
             <a href="#shop">Shop</a>
             <a href="#cybographics">Cybographics Inc.</a>
-            <a href="#online-stores">Online Stores</a>
+            <div className="nav-dropdown">
+              <a href="#online-stores">
+                Online Stores <ChevronDown aria-hidden="true" />
+              </a>
+              <div className="online-stores-menu" aria-label="Online stores">
+                <span>Store list pending</span>
+              </div>
+            </div>
             <a href="#contact">Contact</a>
             <a href="#more">More</a>
           </nav>
@@ -107,7 +121,14 @@ export default function Home() {
               <a href="#top">Home</a>
               <a href="#shop">Shop</a>
               <a href="#cybographics">Cybographics Inc.</a>
-              <a href="#online-stores">Online Stores</a>
+              <details className="mobile-stores">
+                <summary>
+                  Online Stores <ChevronDown aria-hidden="true" />
+                </summary>
+                <div>
+                  <span>Store list pending</span>
+                </div>
+              </details>
               <a href="#contact">Contact</a>
               <a href="#more">More</a>
             </nav>

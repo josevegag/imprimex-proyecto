@@ -120,8 +120,60 @@ img {
   color: #31aaf4;
   border-color: #31aaf4;
 }
-.desktop-nav a:first-child {
+.desktop-nav > a:first-child {
   color: #31aaf4;
+}
+.nav-dropdown {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-dropdown > a svg {
+  width: 14px;
+  transition: transform 180ms ease;
+}
+.online-stores-menu {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% - 1px);
+  left: 50%;
+  width: 270px;
+  min-height: 116px;
+  padding: 30px 28px;
+  background: #211f22;
+  color: #fff;
+  border-top: 3px solid #f4b829;
+  box-shadow: 0 24px 45px #0005;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+.online-stores-menu span {
+  display: block;
+  color: #bec3ca;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+.nav-dropdown:hover .online-stores-menu,
+.nav-dropdown:focus-within .online-stores-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.nav-dropdown:hover > a,
+.nav-dropdown:focus-within > a {
+  color: #f4b829;
+  border-color: #f4b829;
+}
+.nav-dropdown:hover > a svg,
+.nav-dropdown:focus-within > a svg {
+  transform: rotate(180deg);
 }
 .quote-button,
 .hero-primary,
@@ -166,6 +218,37 @@ img {
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
+}
+.mobile-stores {
+  border-block: 1px solid var(--line);
+  padding-block: 13px;
+}
+.mobile-stores summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.mobile-stores summary svg {
+  width: 15px;
+  transition: transform 180ms ease;
+}
+.mobile-stores[open] summary {
+  color: var(--blue-bright);
+}
+.mobile-stores[open] summary svg {
+  transform: rotate(180deg);
+}
+.mobile-stores div {
+  margin-top: 14px;
+  padding: 18px;
+  background: #211f22;
+  color: #bfc4cc;
+  font-size: 11px;
+  text-transform: none;
 }
 .hero-section {
   height: 690px;
