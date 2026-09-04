@@ -67,21 +67,9 @@ const serviceGroups = [
 ];
 
 const onlineStores = [
-  'Alianza Peru S.C.',
-  'Arsenal Soccer Club',
-  'Express Bus Service',
-  'Hackensack Soccer',
-  'Myries Way Apparel',
-  'N2BF',
-  'NE Cantolao FC',
-  'New York Belly Dance Festival',
-  'NYCMSBL',
   'Passaic Police Apparel',
   'PBA Local 14 Apparel',
   'Officer Brian Lora 602',
-  'The Parc',
-  'TTF Football Club',
-  'WPSA SOCCER',
 ];
 
 export default function Home() {
