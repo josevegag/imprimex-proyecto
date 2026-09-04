@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRight,
   ChevronDown,
@@ -9,6 +12,7 @@ import {
 } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { LanguageSelector, useLanguage } from '@/components/language-provider';
 
 const categories = [
   {
@@ -73,6 +77,45 @@ const onlineStores = [
 ];
 
 export default function Home() {
+  const { language } = useLanguage();
+  const t = (english: string, spanish: string) =>
+    language === 'es' ? spanish : english;
+  const categoryTitles = [
+    t('Custom Apparel', 'Ropa personalizada'),
+    t('Screen Printing', 'Serigrafía'),
+    t('Embroidery', 'Bordado'),
+    t('Business Printing', 'Impresión comercial'),
+  ];
+  const categoryLabels = [
+    t('Wear your brand', 'Luce tu marca'),
+    t('Bold, lasting prints', 'Impresiones duraderas'),
+    t('A polished finish', 'Un acabado profesional'),
+    t('Make every detail count', 'Cada detalle cuenta'),
+  ];
+  const groupTitles = [
+    t('Apparel & Uniforms', 'Ropa y uniformes'),
+    t('Business Print', 'Impresión comercial'),
+    t('Stickers & Packaging', 'Stickers y empaque'),
+    t('Design & Brand', 'Diseño y marca'),
+  ];
+  const serviceTranslations: Record<string, string> = {
+    'Custom Apparel': 'Ropa personalizada',
+    Uniforms: 'Uniformes',
+    'Screen Printing': 'Serigrafía',
+    'DTF Transfers': 'Transfers DTF',
+    Embroidery: 'Bordado',
+    'Business Cards': 'Tarjetas de presentación',
+    Flyers: 'Volantes',
+    Menus: 'Menús',
+    'Promotional Printing': 'Impresión promocional',
+    'Stickers & Labels': 'Stickers y etiquetas',
+    Labels: 'Etiquetas',
+    'Graphic Design': 'Diseño gráfico',
+    'Branding Materials': 'Materiales de marca',
+  };
+  const serviceName = (name: string) =>
+    language === 'es' ? serviceTranslations[name] : name;
+
   return (
     <main id="top">
       <div className="utility-bar">
@@ -104,20 +147,24 @@ export default function Home() {
               height={729}
             />
           </a>
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <a href="#top">Home</a>
-            <a href="#shop">Shop</a>
+          <nav
+            className="desktop-nav"
+            aria-label={t('Main navigation', 'Navegación principal')}
+          >
+            <a href="#top">{t('Home', 'Inicio')}</a>
+            <a href="#shop">{t('Shop', 'Tienda')}</a>
             <a href="#cybographics">Cybographics Inc.</a>
             <div className="nav-dropdown">
               <a href="#online-stores">
-                Online Stores <ChevronDown aria-hidden="true" />
+                {t('Online Stores', 'Tiendas en línea')}{' '}
+                <ChevronDown aria-hidden="true" />
               </a>
               <div className="online-stores-menu" aria-label="Online stores">
                 <ul>
                   {onlineStores.map((store) => (
                     <li key={store.name}>
                       {store.href ? (
-                        <a href={store.href}>{store.name}</a>
+                        <Link href={store.href}>{store.name}</Link>
                       ) : (
                         store.name
                       )}
@@ -126,27 +173,29 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            <a href="#contact">Contact</a>
-            <a href="#more">More</a>
+            <a href="#contact">{t('Contact', 'Contacto')}</a>
+            <a href="#more">{t('More', 'Más')}</a>
           </nav>
+          <LanguageSelector />
           <details className="mobile-nav">
-            <summary aria-label="Open navigation">
+            <summary aria-label={t('Open navigation', 'Abrir navegación')}>
               <Menu />
             </summary>
             <nav>
-              <a href="#top">Home</a>
-              <a href="#shop">Shop</a>
+              <a href="#top">{t('Home', 'Inicio')}</a>
+              <a href="#shop">{t('Shop', 'Tienda')}</a>
               <a href="#cybographics">Cybographics Inc.</a>
               <details className="mobile-stores">
                 <summary>
-                  Online Stores <ChevronDown aria-hidden="true" />
+                  {t('Online Stores', 'Tiendas en línea')}{' '}
+                  <ChevronDown aria-hidden="true" />
                 </summary>
                 <div>
                   <ul>
                     {onlineStores.map((store) => (
                       <li key={store.name}>
                         {store.href ? (
-                          <a href={store.href}>{store.name}</a>
+                          <Link href={store.href}>{store.name}</Link>
                         ) : (
                           store.name
                         )}
@@ -155,8 +204,8 @@ export default function Home() {
                   </ul>
                 </div>
               </details>
-              <a href="#contact">Contact</a>
-              <a href="#more">More</a>
+              <a href="#contact">{t('Contact', 'Contacto')}</a>
+              <a href="#more">{t('More', 'Más')}</a>
             </nav>
           </details>
         </div>
@@ -166,23 +215,28 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="site-width hero-content">
           <span className="hero-kicker">
-            Custom printing • Passaic, New Jersey
+            {t(
+              'Custom printing • Passaic, New Jersey',
+              'Impresión personalizada • Passaic, Nueva Jersey',
+            )}
           </span>
           <h1>
-            Bring your
+            {t('Bring your', 'Convierte tus')}
             <br />
-            <strong>ideas to life.</strong>
+            <strong>{t('ideas to life.', 'ideas en realidad.')}</strong>
           </h1>
           <p>
-            Apparel, uniforms, signs, stickers, and business
-            essentials—professionally printed for the way your brand works.
+            {t(
+              'Apparel, uniforms, signs, stickers, and business essentials—professionally printed for the way your brand works.',
+              'Ropa, uniformes, letreros, stickers y materiales comerciales, impresos profesionalmente para las necesidades de tu marca.',
+            )}
           </p>
           <div className="hero-buttons">
             <a
               className={cn(buttonVariants(), 'hero-primary')}
               href="mailto:imprimexllc@gmail.com?subject=Request%20a%20Quote"
             >
-              Request a Quote <ArrowRight />
+              {t('Request a Quote', 'Solicitar cotización')} <ArrowRight />
             </a>
             <a
               className={cn(
@@ -191,7 +245,7 @@ export default function Home() {
               )}
               href="#shop"
             >
-              Explore Services
+              {t('Explore Services', 'Explorar servicios')}
             </a>
           </div>
         </div>
@@ -225,7 +279,12 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-note">
-          <span>For All Your Printing Needs</span>
+          <span>
+            {t(
+              'For All Your Printing Needs',
+              'Para todas tus necesidades de impresión',
+            )}
+          </span>
           <i />
         </div>
       </section>
@@ -234,12 +293,18 @@ export default function Home() {
         <div className="site-width">
           <div className="section-intro">
             <div>
-              <span className="section-label">Explore what we make</span>
-              <h2>Start with a category.</h2>
+              <span className="section-label">
+                {t('Explore what we make', 'Explora lo que hacemos')}
+              </span>
+              <h2>
+                {t('Start with a category.', 'Comienza con una categoría.')}
+              </h2>
             </div>
             <p>
-              Find the right service quickly, whether you’re outfitting a team,
-              preparing a storefront, or building a brand from the ground up.
+              {t(
+                'Find the right service quickly, whether you’re outfitting a team, preparing a storefront, or building a brand from the ground up.',
+                'Encuentra rápidamente el servicio adecuado, ya sea para vestir a un equipo, preparar un negocio o crear una marca desde cero.',
+              )}
             </p>
           </div>
           <div className="category-grid">
@@ -248,7 +313,7 @@ export default function Home() {
                 className="category-card"
                 href={item.href}
                 key={item.title}
-                aria-label={`Explore ${item.title}`}
+                aria-label={`${t('Explore', 'Explorar')} ${categoryTitles[categories.indexOf(item)]}`}
               >
                 <Image
                   src={item.image}
@@ -259,10 +324,10 @@ export default function Home() {
                 />
                 <span className="card-shade" />
                 <div>
-                  <small>{item.label}</small>
-                  <h3>{item.title}</h3>
+                  <small>{categoryLabels[categories.indexOf(item)]}</small>
+                  <h3>{categoryTitles[categories.indexOf(item)]}</h3>
                   <span className="card-link">
-                    Explore <ArrowRight />
+                    {t('Explore', 'Explorar')} <ArrowRight />
                   </span>
                 </div>
               </a>
@@ -275,22 +340,27 @@ export default function Home() {
         <div className="site-width">
           <div className="service-menu-head">
             <span className="section-label light">
-              Everything under one roof
+              {t('Everything under one roof', 'Todo en un solo lugar')}
             </span>
-            <h2>Print services for every kind of project.</h2>
+            <h2>
+              {t(
+                'Print services for every kind of project.',
+                'Servicios de impresión para todo tipo de proyecto.',
+              )}
+            </h2>
           </div>
           <div className="service-groups">
             {serviceGroups.map((group) => (
               <article key={group.number}>
                 <span className="group-number">{group.number}</span>
-                <h3>{group.title}</h3>
+                <h3>{groupTitles[serviceGroups.indexOf(group)]}</h3>
                 <ul>
                   {group.services.map((service) => (
                     <li key={service}>
                       <a
                         href={`mailto:imprimexllc@gmail.com?subject=${encodeURIComponent(service)}%20Quote`}
                       >
-                        {service}
+                        {serviceName(service)}
                         <ArrowRight />
                       </a>
                     </li>
@@ -311,38 +381,44 @@ export default function Home() {
             loading="eager"
             sizes="(max-width: 1000px) 100vw, 54vw"
           />
-          <span className="photo-tag">Apparel & Uniforms</span>
+          <span className="photo-tag">
+            {t('Apparel & Uniforms', 'Ropa y uniformes')}
+          </span>
         </div>
         <div className="apparel-copy">
-          <span className="section-label">Made for your people</span>
+          <span className="section-label">
+            {t('Made for your people', 'Hecho para tu equipo')}
+          </span>
           <h2>
-            One team.
+            {t('One team.', 'Un equipo.')}
             <br />
-            One look.
+            {t('One look.', 'Una imagen.')}
           </h2>
           <p>
-            From everyday workwear to event shirts and team uniforms, choose the
-            decoration method and apparel that fit your project.
+            {t(
+              'From everyday workwear to event shirts and team uniforms, choose the decoration method and apparel that fit your project.',
+              'Desde ropa de trabajo hasta camisetas para eventos y uniformes, elige el método de personalización y las prendas ideales para tu proyecto.',
+            )}
           </p>
           <div className="feature-columns">
             <div>
-              <strong>Print options</strong>
-              <span>Screen Printing</span>
+              <strong>{t('Print options', 'Opciones de impresión')}</strong>
+              <span>{t('Screen Printing', 'Serigrafía')}</span>
               <span>DTF Transfers</span>
-              <span>Embroidery</span>
+              <span>{t('Embroidery', 'Bordado')}</span>
             </div>
             <div>
-              <strong>Made for</strong>
-              <span>Staff & Crews</span>
-              <span>Teams & Events</span>
-              <span>Local Brands</span>
+              <strong>{t('Made for', 'Ideal para')}</strong>
+              <span>{t('Staff & Crews', 'Personal y equipos')}</span>
+              <span>{t('Teams & Events', 'Equipos y eventos')}</span>
+              <span>{t('Local Brands', 'Marcas locales')}</span>
             </div>
           </div>
           <a
             className={cn(buttonVariants(), 'dark-button')}
             href="mailto:imprimexllc@gmail.com?subject=Custom%20Apparel%20Quote"
           >
-            Ask about apparel <ArrowRight />
+            {t('Ask about apparel', 'Consultar sobre ropa')} <ArrowRight />
           </a>
         </div>
       </section>
@@ -350,11 +426,13 @@ export default function Home() {
       <section className="business-section" id="more">
         <div className="site-width">
           <div className="business-heading">
-            <span className="section-label">Business printing</span>
+            <span className="section-label">
+              {t('Business printing', 'Impresión comercial')}
+            </span>
             <h2>
-              Every touchpoint,
+              {t('Every touchpoint,', 'Cada punto de contacto,')}
               <br />
-              professionally printed.
+              {t('professionally printed.', 'impreso profesionalmente.')}
             </h2>
           </div>
           <div className="business-layout">
@@ -367,8 +445,13 @@ export default function Home() {
                 sizes="(max-width: 640px) 100vw, 63vw"
               />
               <div>
-                <small>Brand essentials</small>
-                <h3>Business cards, flyers & materials</h3>
+                <small>{t('Brand essentials', 'Esenciales de marca')}</small>
+                <h3>
+                  {t(
+                    'Business cards, flyers & materials',
+                    'Tarjetas, volantes y materiales',
+                  )}
+                </h3>
               </div>
             </div>
             <div className="business-image">
@@ -380,23 +463,25 @@ export default function Home() {
                 sizes="(max-width: 640px) 100vw, 37vw"
               />
               <div>
-                <small>Custom production</small>
-                <h3>Promotional printing</h3>
+                <small>
+                  {t('Custom production', 'Producción personalizada')}
+                </small>
+                <h3>{t('Promotional printing', 'Impresión promocional')}</h3>
               </div>
             </div>
             <div className="business-list">
-              <h3>Also available</h3>
+              <h3>{t('Also available', 'También disponible')}</h3>
               <a href="mailto:imprimexllc@gmail.com?subject=Menus%20Quote">
-                Menus <ArrowRight />
+                {t('Menus', 'Menús')} <ArrowRight />
               </a>
               <a href="mailto:imprimexllc@gmail.com?subject=Stickers%20and%20Labels%20Quote">
-                Stickers & Labels <ArrowRight />
+                {t('Stickers & Labels', 'Stickers y etiquetas')} <ArrowRight />
               </a>
               <a href="mailto:imprimexllc@gmail.com?subject=Graphic%20Design">
-                Graphic Design <ArrowRight />
+                {t('Graphic Design', 'Diseño gráfico')} <ArrowRight />
               </a>
               <a href="mailto:imprimexllc@gmail.com?subject=Branding%20Materials%20Quote">
-                Branding Materials <ArrowRight />
+                {t('Branding Materials', 'Materiales de marca')} <ArrowRight />
               </a>
             </div>
           </div>
@@ -411,15 +496,22 @@ export default function Home() {
           height={131}
         />
         <div>
-          <span className="section-label light">Have a project in mind?</span>
-          <h2>Let’s print it.</h2>
-          <p>Tell us what you need, how many, and when you need it.</p>
+          <span className="section-label light">
+            {t('Have a project in mind?', '¿Tienes un proyecto en mente?')}
+          </span>
+          <h2>{t('Let’s print it.', 'Vamos a imprimirlo.')}</h2>
+          <p>
+            {t(
+              'Tell us what you need, how many, and when you need it.',
+              'Cuéntanos qué necesitas, cuántas unidades y para cuándo.',
+            )}
+          </p>
         </div>
         <a
           className={cn(buttonVariants(), 'white-button')}
           href="mailto:imprimexllc@gmail.com?subject=Request%20a%20Quote"
         >
-          Request a Quote <ArrowRight />
+          {t('Request a Quote', 'Solicitar cotización')} <ArrowRight />
         </a>
       </section>
 
@@ -432,10 +524,15 @@ export default function Home() {
               width={910}
               height={289}
             />
-            <p>For All Your Printing Needs</p>
+            <p>
+              {t(
+                'For All Your Printing Needs',
+                'Para todas tus necesidades de impresión',
+              )}
+            </p>
           </div>
           <div>
-            <h3>Visit</h3>
+            <h3>{t('Visit', 'Visítanos')}</h3>
             <a href="https://maps.google.com/?q=46+Wall+St+Passaic+NJ+07055">
               46 Wall St
               <br />
@@ -443,13 +540,13 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <h3>Contact</h3>
+            <h3>{t('Contact', 'Contacto')}</h3>
             <a href="tel:+19733650099">(973) 365-0099</a>
             <a href="https://wa.me/19739304571">WhatsApp: (973) 930-4571</a>
             <a href="mailto:imprimexllc@gmail.com">imprimexllc@gmail.com</a>
           </div>
           <div>
-            <h3>Follow</h3>
+            <h3>{t('Follow', 'Síguenos')}</h3>
             <a
               className="social-link"
               href="https://www.instagram.com/imprimexnj/"
@@ -460,13 +557,16 @@ export default function Home() {
         </div>
         <div className="site-width footer-bottom">
           <span>© {new Date().getFullYear()} Imprimex</span>
-          <a href="#top">Back to top ↑</a>
+          <a href="#top">{t('Back to top', 'Volver arriba')} ↑</a>
         </div>
       </footer>
       <a
         className="whatsapp-float"
         href="https://wa.me/19739304571"
-        aria-label="Contact Imprimex on WhatsApp"
+        aria-label={t(
+          'Contact Imprimex on WhatsApp',
+          'Contactar a Imprimex por WhatsApp',
+        )}
       >
         <MessageCircle />
       </a>

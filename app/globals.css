@@ -91,6 +91,45 @@ img {
   align-items: center;
   gap: 42px;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.language-switch {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #c8edff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.language-switch button {
+  padding: 7px 2px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+.language-switch button:hover,
+.language-switch button:focus-visible,
+.language-switch button.active {
+  color: #ffe24d;
+}
+.language-switch i {
+  font-style: normal;
+  color: #ffffff75;
+}
 .logo-link {
   width: 310px;
   margin-right: auto;
@@ -851,6 +890,9 @@ footer {
   .mobile-nav {
     display: block;
   }
+  .header-inner {
+    gap: 18px;
+  }
   .hero-section {
     height: 640px;
   }
@@ -914,7 +956,7 @@ footer {
     height: 92px;
   }
   .logo-link {
-    width: 235px;
+    width: 210px;
   }
   .hero-section {
     height: 660px;
@@ -1086,6 +1128,11 @@ footer {
   width: 100%;
   height: auto;
 }
+.police-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
 .police-back {
   display: flex;
   align-items: center;
@@ -1193,11 +1240,13 @@ footer {
   z-index: 2;
   top: 0;
   left: 0;
+  width: 78px;
   padding: 6px 10px;
   background: #d51f25;
   color: #fff;
   font-size: 10px;
   font-weight: 900;
+  text-align: center;
 }
 .police-product-photo img {
   position: absolute;
@@ -1245,7 +1294,13 @@ footer {
     height: 88px;
   }
   .police-store-nav > a:first-child {
-    width: 220px;
+    width: 205px;
+  }
+  .police-nav-actions {
+    gap: 13px;
+  }
+  .police-nav-actions .language-switch {
+    font-size: 10px;
   }
   .police-back {
     font-size: 0;

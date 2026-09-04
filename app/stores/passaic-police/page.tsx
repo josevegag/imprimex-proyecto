@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import type { CSSProperties } from 'react';
+import { LanguageSelector, useLanguage } from '@/components/language-provider';
 
 const products = [
   { name: 'ERT PPD Hoodie (Unisex)', price: '$38.25', x: 35, badge: true },
@@ -30,6 +33,10 @@ const products = [
 ];
 
 export default function PassaicPoliceStore() {
+  const { language } = useLanguage();
+  const t = (english: string, spanish: string) =>
+    language === 'es' ? spanish : english;
+
   return (
     <main className="police-store">
       <header className="police-store-nav">
@@ -42,21 +49,30 @@ export default function PassaicPoliceStore() {
             priority
           />
         </Link>
-        <Link className="police-back" href="/#top">
-          <ArrowLeft aria-hidden="true" /> Back to Imprimex
-        </Link>
+        <div className="police-nav-actions">
+          <LanguageSelector />
+          <Link className="police-back" href="/#top">
+            <ArrowLeft aria-hidden="true" />
+            {t('Back to Imprimex', 'Volver a Imprimex')}
+          </Link>
+        </div>
       </header>
 
       <section className="police-masthead">
-        <span>Official Online Store</span>
+        <span>{t('Official Online Store', 'Tienda oficial en línea')}</span>
         <h1>Passaic Police</h1>
       </section>
 
       <section className="police-products" aria-labelledby="shop-apparel">
         <div className="police-products-heading">
           <p>Passaic Police Apparel</p>
-          <h2 id="shop-apparel">Shop Apparel</h2>
-          <span>Scroll to explore all 7 products</span>
+          <h2 id="shop-apparel">{t('Shop Apparel', 'Comprar ropa')}</h2>
+          <span>
+            {t(
+              'Scroll to explore all 7 products',
+              'Desliza para explorar los 7 productos',
+            )}
+          </span>
         </div>
 
         <div className="police-product-rail">
@@ -67,7 +83,7 @@ export default function PassaicPoliceStore() {
               style={{ '--card-index': index } as CSSProperties}
             >
               <div className="police-product-photo">
-                {product.badge && <span>New Arrival</span>}
+                {product.badge && <span>{t('New Arrival', 'Nuevo')}</span>}
                 <Image
                   src="/images/passaic-police-products-reference.png"
                   alt={product.name}
