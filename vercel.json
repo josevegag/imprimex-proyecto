@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
-  "rewrites": [{ "source": "/((?!_next/|images/|videos/|favicon.ico).*)", "destination": "/api" }]
+  "rewrites": [{ "source": "/((?!_next/static/|images/|videos/|favicon.ico).*)", "destination": "/api" }]
 }
