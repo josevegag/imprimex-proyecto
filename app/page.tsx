@@ -212,6 +212,17 @@ export default function Home() {
       </header>
 
       <section className="hero-section">
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/videos/imprimex-hero.mp4" type="video/mp4" />
+        </video>
         <div className="hero-overlay" />
         <div className="site-width hero-content">
           <span className="hero-kicker">
@@ -247,35 +258,6 @@ export default function Home() {
             >
               {t('Explore Services', 'Explorar servicios')}
             </a>
-          </div>
-        </div>
-        <div className="hero-work" aria-label="Selected work by Imprimex">
-          <div className="hero-work-main">
-            <Image
-              src="/images/real-dtf.jpg"
-              alt="Direct to film apparel work published by Imprimex"
-              fill
-              priority
-              sizes="(max-width: 900px) 70vw, 34vw"
-            />
-          </div>
-          <div className="hero-work-small top">
-            <Image
-              src="/images/real-embroidery.jpg"
-              alt="Embroidered hats published by Imprimex"
-              fill
-              priority
-              sizes="18vw"
-            />
-          </div>
-          <div className="hero-work-small bottom">
-            <Image
-              src="/images/real-business-cards.jpg"
-              alt="Business card printing published by Imprimex"
-              fill
-              priority
-              sizes="18vw"
-            />
           </div>
         </div>
         <div className="hero-note">

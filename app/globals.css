@@ -7,7 +7,7 @@
   --color-background: var(--background);
   --color-foreground: var(--ink);
   --color-primary: var(--blue);
-  --color-primary-foreground: #fff;
+  --color-primary-foreground: var(--ink);
   --color-secondary: #eff4fb;
   --color-secondary-foreground: var(--ink);
   --color-border: #dce2ea;
@@ -18,9 +18,9 @@
 :root {
   --background: #fff;
   --ink: #111318;
-  --blue: #315ca9;
-  --blue-bright: #1173d4;
-  --blue-deep: #11294f;
+  --blue: #41b9e9;
+  --blue-bright: #169bd5;
+  --blue-deep: #087daf;
   --red: #e43c27;
   --yellow: #f4cb28;
   --gray: #f4f5f7;
@@ -79,11 +79,11 @@ img {
 }
 .main-header {
   height: 108px;
-  background: linear-gradient(100deg, #073f88 0%, #0869c6 100%);
+  background: linear-gradient(100deg, #73d5f4 0%, #30b4e8 100%);
   position: relative;
   z-index: 30;
-  border-bottom: 3px solid #18c8eb;
-  box-shadow: 0 10px 30px #07193426;
+  border-bottom: 3px solid #ec168c;
+  box-shadow: 0 10px 30px #1196c72e;
 }
 .header-inner {
   height: 100%;
@@ -107,7 +107,7 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #c8edff;
+  color: #10212d;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -124,11 +124,11 @@ img {
 .language-switch button:hover,
 .language-switch button:focus-visible,
 .language-switch button.active {
-  color: #ffe24d;
+  color: #111318;
 }
 .language-switch i {
   font-style: normal;
-  color: #ffffff75;
+  color: #153e52;
 }
 .logo-link {
   width: 310px;
@@ -146,7 +146,7 @@ img {
   gap: clamp(20px, 2.25vw, 38px);
   font-size: 14px;
   font-weight: 750;
-  color: #fff;
+  color: #101820;
 }
 .desktop-nav a {
   height: 100%;
@@ -156,11 +156,11 @@ img {
   border-bottom: 3px solid transparent;
 }
 .desktop-nav a:hover {
-  color: #ffe24d;
-  border-color: #ffe24d;
+  color: #101820;
+  border-color: #ec168c;
 }
 .desktop-nav > a:first-child {
-  color: #79e9ff;
+  color: #101820;
 }
 .nav-dropdown {
   height: 100%;
@@ -181,7 +181,7 @@ img {
   padding: 24px 26px 28px;
   background: #211f22;
   color: #fff;
-  border-top: 3px solid #18c8eb;
+  border-top: 3px solid var(--blue);
   box-shadow: 0 24px 45px #0005;
   opacity: 0;
   visibility: hidden;
@@ -257,7 +257,7 @@ img {
 }
 .quote-button {
   background: var(--blue);
-  color: #fff;
+  color: var(--ink);
 }
 .quote-button:hover {
   background: var(--blue-deep);
@@ -269,7 +269,7 @@ img {
 .mobile-nav summary {
   cursor: pointer;
   list-style: none;
-  color: #fff;
+  color: var(--ink);
 }
 .mobile-nav nav {
   position: absolute;
@@ -331,55 +331,15 @@ img {
   position: relative;
   overflow: hidden;
   color: #fff;
-  background:
-    radial-gradient(circle at 76% 45%, #1d61a7 0, transparent 28%),
-    linear-gradient(120deg, #07111f 0%, #102f5a 64%, #2878be 100%);
+  background: linear-gradient(120deg, #58c9ef 0%, #20a9df 100%);
 }
-.hero-image {
+.hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 54%;
-}
-.hero-work {
-  position: absolute;
-  width: min(51vw, 720px);
-  height: 530px;
-  right: 4vw;
-  top: 72px;
-}
-.hero-work-main,
-.hero-work-small {
-  position: absolute;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 28px 70px #0006;
-  border: 7px solid #fff;
-}
-.hero-work-main {
-  width: 390px;
-  height: 390px;
-  left: 0;
-  top: 42px;
-  transform: rotate(-4deg);
-}
-.hero-work-small {
-  width: 215px;
-  height: 215px;
-  right: 0;
-}
-.hero-work-small.top {
-  top: 0;
-  transform: rotate(4deg);
-}
-.hero-work-small.bottom {
-  bottom: 0;
-  transform: rotate(2deg);
-}
-.hero-work img {
-  object-fit: cover;
+  object-position: center;
 }
 .hero-overlay {
   position: absolute;
@@ -387,9 +347,9 @@ img {
   background:
     linear-gradient(
       90deg,
-      rgba(5, 10, 18, 0.9) 0%,
-      rgba(8, 17, 31, 0.68) 44%,
-      rgba(9, 16, 27, 0.14) 75%
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.48) 48%,
+      rgba(0, 0, 0, 0.12) 82%
     ),
     linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 45%);
 }
@@ -412,7 +372,7 @@ img {
   color: var(--blue);
 }
 .hero-kicker {
-  color: #a9d4ff;
+  color: #bcefff;
   border-left: 3px solid var(--red);
   padding-left: 12px;
 }
@@ -423,7 +383,7 @@ img {
   margin: 27px 0;
 }
 .hero-content h1 strong {
-  color: #8fc7ff;
+  color: #72d6f5;
 }
 .hero-content p {
   max-width: 560px;
@@ -442,7 +402,7 @@ img {
   color: #fff;
 }
 .hero-primary:hover {
-  background: #0c5fae;
+  background: var(--blue-deep);
 }
 .hero-secondary {
   color: #fff;
@@ -566,15 +526,15 @@ img {
   color: #80baf7;
 }
 .service-menu {
-  background: #11294f;
-  color: #fff;
+  background: #dff5fc;
+  color: var(--ink);
   padding: 115px 0 125px;
 }
 .service-menu-head {
   max-width: 760px;
 }
 .section-label.light {
-  color: #99c9fb;
+  color: #087daf;
 }
 .service-menu-head h2 {
   margin-bottom: 65px;
@@ -582,16 +542,16 @@ img {
 .service-groups {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid #ffffff2e;
-  border-left: 1px solid #ffffff2e;
+  border-top: 1px solid #64bddf;
+  border-left: 1px solid #64bddf;
 }
 .service-groups article {
   padding: 30px 28px 35px;
-  border-right: 1px solid #ffffff2e;
+  border-right: 1px solid #64bddf;
 }
 .group-number {
   font-size: 10px;
-  color: #79b4ef;
+  color: #087daf;
   font-weight: 900;
   letter-spacing: 0.13em;
 }
@@ -607,22 +567,22 @@ img {
   margin: 0;
 }
 .service-groups li {
-  border-top: 1px solid #ffffff1b;
+  border-top: 1px solid #9eddf3;
 }
 .service-groups a {
   min-height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #dce8f5;
+  color: #263945;
   font-size: 11px;
 }
 .service-groups a:hover {
-  color: #fff;
+  color: #087daf;
 }
 .service-groups svg {
   width: 13px;
-  color: #69a8e9;
+  color: #169bd5;
 }
 .apparel-section {
   display: grid;
@@ -896,11 +856,6 @@ footer {
   .hero-section {
     height: 640px;
   }
-  .hero-work {
-    width: 56vw;
-    right: -8vw;
-    opacity: 0.76;
-  }
   .category-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -911,7 +866,7 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
   .service-groups article {
-    border-bottom: 1px solid #ffffff2e;
+    border-bottom: 1px solid #64bddf;
   }
   .apparel-section {
     grid-template-columns: 1fr;
@@ -961,23 +916,8 @@ footer {
   .hero-section {
     height: 660px;
   }
-  .hero-work {
-    width: 100%;
-    height: 330px;
-    top: 28px;
-    right: -62px;
-    opacity: 0.52;
-  }
-  .hero-work-main {
-    width: 260px;
-    height: 260px;
-  }
-  .hero-work-small {
-    width: 140px;
-    height: 140px;
-  }
-  .hero-image {
-    object-position: 60% center;
+  .hero-video {
+    object-position: 58% center;
   }
   .hero-overlay {
     background:
@@ -1108,18 +1048,18 @@ footer {
 /* Passaic Police online store */
 .police-store {
   min-height: 100vh;
-  background: #22275f;
-  color: #fff;
+  background: #eaf8fd;
+  color: var(--ink);
   overflow: hidden;
 }
 .police-store-nav {
   height: 100px;
   padding: 0 clamp(20px, 4vw, 68px);
-  background: linear-gradient(100deg, #073f88 0%, #0869c6 100%);
+  background: linear-gradient(100deg, #73d5f4 0%, #30b4e8 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 3px solid #18c8eb;
+  border-bottom: 3px solid #ec168c;
 }
 .police-store-nav > a:first-child {
   width: 285px;
@@ -1137,7 +1077,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #d8dbea;
+  color: #10212d;
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -1145,7 +1085,7 @@ footer {
   transition: color 180ms ease;
 }
 .police-back:hover {
-  color: #ffd04b;
+  color: #101820;
 }
 .police-back svg {
   width: 17px;
@@ -1157,7 +1097,7 @@ footer {
   text-align: center;
   padding: 55px 24px 45px;
   background:
-    linear-gradient(90deg, transparent, #ffffff08, transparent), #292e6c;
+    linear-gradient(90deg, transparent, #ffffff70, transparent), #66cdf1;
   border-bottom: 18px solid #d9aa22;
 }
 .police-masthead span,
@@ -1167,15 +1107,15 @@ footer {
   letter-spacing: 0.18em;
   font-size: 10px;
   font-weight: 900;
-  color: #f5ca48;
+  color: #075f87;
 }
 .police-masthead h1 {
   margin: 10px 0 0;
   font: 800 clamp(72px, 8vw, 120px)/0.86 var(--font-display);
   text-transform: uppercase;
   letter-spacing: -0.025em;
-  color: #ffd04b;
-  text-shadow: 4px 4px 0 #fff3;
+  color: #101820;
+  text-shadow: 4px 4px 0 #ffffff80;
 }
 .pba-masthead h1 {
   font-size: clamp(58px, 6vw, 92px);
@@ -1200,7 +1140,7 @@ footer {
 }
 .police-products-heading > span {
   justify-self: end;
-  color: #afb4d2;
+  color: #397088;
 }
 .police-product-rail {
   display: grid;
@@ -1210,14 +1150,14 @@ footer {
   padding: 8px max(32px, calc((100vw - 1420px) / 2)) 25px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scrollbar-color: #d9aa22 #171b42;
+  scrollbar-color: var(--blue-bright) #cdeef9;
 }
 .police-product-card {
   min-height: 218px;
   display: grid;
   grid-template-columns: 145px 1fr;
-  background: #292e6c;
-  border: 2px solid #d9aa22;
+  background: #dff5fc;
+  border: 2px solid var(--blue-bright);
   scroll-snap-align: start;
   opacity: 0;
   transform: translateY(20px);
@@ -1230,8 +1170,8 @@ footer {
 }
 .police-product-card:hover {
   transform: translateY(-7px) scale(1.015);
-  border-color: #ffd75c;
-  box-shadow: 0 24px 45px #0b0e2799;
+  border-color: #ec168c;
+  box-shadow: 0 24px 45px #168fb73d;
 }
 .police-product-photo {
   position: relative;
@@ -1278,18 +1218,18 @@ footer {
   margin: 0;
   font-size: 15px;
   line-height: 1.35;
-  color: #fff;
+  color: var(--ink);
 }
 .police-product-info strong {
   margin-top: auto;
-  color: #ffd04b;
+  color: #087daf;
   font: 800 27px var(--font-display);
   transition:
     color 180ms ease,
     transform 180ms ease;
 }
 .police-product-card:hover .police-product-info strong {
-  color: #fff;
+  color: #101820;
   transform: translateX(4px);
 }
 @keyframes police-card-in {
@@ -1363,7 +1303,7 @@ footer {
   position: relative;
   overflow: hidden;
   border-bottom: 14px solid #d9aa22;
-  background: #10263d;
+  background: #58c9ef;
 }
 .lora-memorial-banner picture,
 .lora-memorial-banner img {
@@ -1391,9 +1331,9 @@ footer {
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
   align-items: center;
   overflow: hidden;
-  border: 2px solid #d9aa22;
-  background: #292e6c;
-  box-shadow: 0 24px 60px #10163b2b;
+  border: 2px solid var(--blue-bright);
+  background: #dff5fc;
+  box-shadow: 0 24px 60px #168fb72b;
   opacity: 0;
   transform: translateY(22px);
   animation: lora-product-in 560ms ease forwards;
@@ -1404,8 +1344,8 @@ footer {
 }
 .lora-product-card:hover {
   transform: translateY(-7px) scale(1.01);
-  border-color: #ffd75c;
-  box-shadow: 0 30px 70px #10163b42;
+  border-color: #ec168c;
+  box-shadow: 0 30px 70px #168fb742;
 }
 .lora-product-image {
   height: 470px;
@@ -1425,7 +1365,7 @@ footer {
 }
 .lora-product-info {
   padding: 44px;
-  color: #fff;
+  color: var(--ink);
 }
 .lora-product-info h2 {
   margin: 0 0 34px;
@@ -1438,24 +1378,24 @@ footer {
   gap: 18px;
 }
 .lora-price del {
-  color: #d6d9e7;
+  color: #667783;
   font: 700 20px var(--font-display);
   text-decoration-color: #ef4b4b;
   text-decoration-thickness: 2px;
   transition: color 180ms ease;
 }
 .lora-price strong {
-  color: #ffd04b;
+  color: #087daf;
   font: 800 40px var(--font-display);
   transition:
     color 180ms ease,
     transform 180ms ease;
 }
 .lora-product-card:hover .lora-price del {
-  color: #fff;
+  color: #394c57;
 }
 .lora-product-card:hover .lora-price strong {
-  color: #fff;
+  color: #101820;
   transform: translateX(4px);
 }
 @keyframes lora-product-in {
