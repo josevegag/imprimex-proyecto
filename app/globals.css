@@ -347,11 +347,12 @@ img {
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.48) 48%,
-      rgba(0, 0, 0, 0.12) 82%
+      rgba(2, 17, 25, 0.36) 0%,
+      rgba(2, 17, 25, 0.18) 46%,
+      rgba(2, 17, 25, 0.03) 76%,
+      transparent 100%
     ),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 45%);
+    linear-gradient(0deg, rgba(0, 0, 0, 0.14), transparent 38%);
 }
 .hero-content {
   height: 100%;
@@ -381,6 +382,7 @@ img {
   text-transform: uppercase;
   letter-spacing: -0.035em;
   margin: 27px 0;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.22);
 }
 .hero-content h1 strong {
   color: #72d6f5;
@@ -391,6 +393,7 @@ img {
   line-height: 1.75;
   color: #e3e8ef;
   margin: 0;
+  text-shadow: 0 2px 9px rgba(0, 0, 0, 0.42);
 }
 .hero-buttons {
   display: flex;
@@ -921,8 +924,13 @@ footer {
   }
   .hero-overlay {
     background:
-      linear-gradient(90deg, rgba(5, 10, 18, 0.9), rgba(5, 10, 18, 0.42)),
-      linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+      linear-gradient(
+        90deg,
+        rgba(2, 17, 25, 0.34) 0%,
+        rgba(2, 17, 25, 0.14) 72%,
+        transparent 100%
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent 42%);
   }
   .hero-content {
     justify-content: flex-end;
