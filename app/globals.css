@@ -1177,6 +1177,9 @@ footer {
   color: #ffd04b;
   text-shadow: 4px 4px 0 #fff3;
 }
+.pba-masthead h1 {
+  font-size: clamp(58px, 6vw, 92px);
+}
 .police-products {
   padding: 60px 0 78px;
 }
@@ -1257,6 +1260,12 @@ footer {
   object-fit: none;
   transition: transform 300ms ease;
 }
+.police-product-photo.pba-product-photo img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .police-product-card:hover .police-product-photo img {
   transform: scale(1.045);
 }
@@ -1311,6 +1320,9 @@ footer {
   }
   .police-masthead h1 {
     font-size: clamp(58px, 18vw, 82px);
+  }
+  .pba-masthead h1 {
+    font-size: clamp(46px, 13vw, 66px);
   }
   .police-products {
     padding-top: 45px;

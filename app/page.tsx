@@ -72,7 +72,7 @@ const serviceGroups = [
 
 const onlineStores = [
   { name: 'Passaic Police Apparel', href: '/stores/passaic-police' },
-  { name: 'PBA Local 14 Apparel' },
+  { name: 'PBA Local 14 Apparel', href: '/stores/pba-local-14' },
   { name: 'Officer Brian Lora 602' },
 ];
 
