@@ -1352,3 +1352,162 @@ footer {
     transition: none;
   }
 }
+
+/* Officer Brian Lora memorial store */
+.lora-store {
+  min-height: 100vh;
+  background: #fff;
+  color: var(--ink);
+}
+.lora-memorial-banner {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 14px solid #d9aa22;
+  background: #10263d;
+}
+.lora-memorial-banner picture,
+.lora-memorial-banner img {
+  display: block;
+  width: 100%;
+}
+.lora-memorial-banner img {
+  height: auto;
+}
+.lora-product-section {
+  padding: 0 24px 90px;
+}
+.lora-donation {
+  margin: 0 auto;
+  padding: 24px 18px 34px;
+  text-align: center;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 800;
+}
+.lora-product-card {
+  width: min(880px, 100%);
+  min-height: 470px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #d9aa22;
+  background: #292e6c;
+  box-shadow: 0 24px 60px #10163b2b;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: lora-product-in 560ms ease forwards;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+.lora-product-card:hover {
+  transform: translateY(-7px) scale(1.01);
+  border-color: #ffd75c;
+  box-shadow: 0 30px 70px #10163b42;
+}
+.lora-product-image {
+  height: 470px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+}
+.lora-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+.lora-product-card:hover .lora-product-image img {
+  transform: scale(1.025);
+}
+.lora-product-info {
+  padding: 44px;
+  color: #fff;
+}
+.lora-product-info h2 {
+  margin: 0 0 34px;
+  font: 800 clamp(34px, 4vw, 52px) / 0.98 var(--font-display);
+  text-transform: uppercase;
+}
+.lora-price {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+.lora-price del {
+  color: #d6d9e7;
+  font: 700 20px var(--font-display);
+  text-decoration-color: #ef4b4b;
+  text-decoration-thickness: 2px;
+  transition: color 180ms ease;
+}
+.lora-price strong {
+  color: #ffd04b;
+  font: 800 40px var(--font-display);
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+.lora-product-card:hover .lora-price del {
+  color: #fff;
+}
+.lora-product-card:hover .lora-price strong {
+  color: #fff;
+  transform: translateX(4px);
+}
+@keyframes lora-product-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 760px) {
+  .lora-memorial-banner {
+    border-bottom-width: 10px;
+  }
+  .lora-memorial-banner img {
+    width: 100%;
+    height: auto;
+  }
+  .lora-product-section {
+    padding-inline: 18px;
+    padding-bottom: 65px;
+  }
+  .lora-donation {
+    padding-block: 22px 28px;
+    line-height: 1.45;
+  }
+  .lora-product-card {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+  .lora-product-image {
+    height: min(112vw, 470px);
+  }
+  .lora-product-info {
+    padding: 32px 28px 36px;
+  }
+  .lora-product-info h2 {
+    margin-bottom: 24px;
+    font-size: clamp(34px, 11vw, 48px);
+  }
+  .lora-price strong {
+    font-size: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lora-product-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+  .lora-product-image img,
+  .lora-price del,
+  .lora-price strong {
+    transition: none;
+  }
+}
