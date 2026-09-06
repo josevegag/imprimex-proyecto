@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   ArrowRight,
   ChevronDown,
@@ -164,7 +163,7 @@ export default function Home() {
                   {onlineStores.map((store) => (
                     <li key={store.name}>
                       {store.href ? (
-                        <Link href={store.href}>{store.name}</Link>
+                        <a href={store.href}>{store.name}</a>
                       ) : (
                         store.name
                       )}
@@ -195,7 +194,7 @@ export default function Home() {
                     {onlineStores.map((store) => (
                       <li key={store.name}>
                         {store.href ? (
-                          <Link href={store.href}>{store.name}</Link>
+                          <a href={store.href}>{store.name}</a>
                         ) : (
                           store.name
                         )}

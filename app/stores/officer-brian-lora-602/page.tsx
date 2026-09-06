@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { LanguageSelector, useLanguage } from '@/components/language-provider';
 
@@ -13,7 +12,7 @@ export default function OfficerBrianLoraMemorialStore() {
   return (
     <main className="lora-store">
       <header className="police-store-nav">
-        <Link href="/" aria-label="Back to Imprimex home">
+        <a href="/" aria-label="Back to Imprimex home">
           <Image
             src="/images/imprimex-logo-approved.png"
             alt="Imprimex"
@@ -21,13 +20,13 @@ export default function OfficerBrianLoraMemorialStore() {
             height={729}
             priority
           />
-        </Link>
+        </a>
         <div className="police-nav-actions">
           <LanguageSelector />
-          <Link className="police-back" href="/#top">
+          <a className="police-back" href="/#top">
             <ArrowLeft aria-hidden="true" />
             {t('Back to Imprimex', 'Volver a Imprimex')}
-          </Link>
+          </a>
         </div>
       </header>
 
