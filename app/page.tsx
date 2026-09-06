@@ -139,10 +139,16 @@ export default function Home() {
     tryPlay();
     video.addEventListener('loadedmetadata', tryPlay, { once: true });
     video.addEventListener('canplay', tryPlay, { once: true });
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    document.addEventListener('pointerdown', tryPlay, { once: true, passive: true });
+    document.addEventListener('visibilitychange', tryPlay);
 
     return () => {
       video.removeEventListener('loadedmetadata', tryPlay);
       video.removeEventListener('canplay', tryPlay);
+      document.removeEventListener('touchstart', tryPlay);
+      document.removeEventListener('pointerdown', tryPlay);
+      document.removeEventListener('visibilitychange', tryPlay);
     };
   }, []);
 
@@ -250,7 +256,7 @@ export default function Home() {
           loop
           playsInline
           controls={false}
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
         >
           <source src="/videos/imprimex-hero.mp4" type="video/mp4" />
