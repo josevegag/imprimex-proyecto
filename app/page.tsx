@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import {
   ArrowRight,
   ChevronDown,
@@ -76,6 +77,7 @@ const onlineStores = [
 ];
 
 export default function Home() {
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
   const { language } = useLanguage();
   const t = (english: string, spanish: string) =>
     language === 'es' ? spanish : english;
@@ -114,6 +116,35 @@ export default function Home() {
   };
   const serviceName = (name: string) =>
     language === 'es' ? serviceTranslations[name] : name;
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    // Safari requires the muted/inline flags to be present on the element
+    // before attempting autoplay. Calling play() after mount also covers
+    // iOS versions that defer autoplay until the media is ready.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      playPromise?.catch(() => {
+        // Autoplay can still be blocked by user/device settings; leave the
+        // page intact and allow Safari to start playback after interaction.
+      });
+    };
+
+    tryPlay();
+    video.addEventListener('loadedmetadata', tryPlay, { once: true });
+    video.addEventListener('canplay', tryPlay, { once: true });
+
+    return () => {
+      video.removeEventListener('loadedmetadata', tryPlay);
+      video.removeEventListener('canplay', tryPlay);
+    };
+  }, []);
 
   return (
     <main id="top">
@@ -212,11 +243,13 @@ export default function Home() {
 
       <section className="hero-section">
         <video
+          ref={heroVideoRef}
           className="hero-video"
           autoPlay
           muted
           loop
           playsInline
+          controls={false}
           preload="metadata"
           aria-hidden="true"
         >
